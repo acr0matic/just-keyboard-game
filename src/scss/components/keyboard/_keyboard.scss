@@ -1,0 +1,104 @@
+.keyboard {
+  &__row {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 70px;
+    height: 70px;
+    border: 1px solid $border__main;
+
+    color: $text-white;
+    font-size: 21px;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      left: 50%;
+
+      width: 0;
+      height: 0;
+
+      background-color: #fa4545;
+
+      transform: translate(-50%, -50%);
+      transition: 0.15s ease;
+    }
+
+    &:not(.keyboard__button--disabled):hover {
+      &::after {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &--disabled {
+      border-color: $border__disabled;
+      opacity: 0.1;
+    }
+
+    &--escape {
+      margin-right: 90px !important;
+    }
+
+    &--function {
+      margin-right: 60px !important;
+    }
+
+    &--backspace {
+      width: 170px;
+    }
+
+    &--tab {
+      width: 110px;
+    }
+
+    &--caps {
+      width: 150px;
+    }
+
+    &--lshift {
+      width: 190px;
+    }
+
+    &--rshift {
+      width: 210px;
+    }
+
+    &--enter {
+      width: 170px;
+    }
+
+    &--slash {
+      width: 130px;
+    }
+
+    &--ctrl,
+    &--win,
+    &--alt,
+    &--fn,
+    &--context {
+      width: 100px;
+    }
+
+    &--space {
+      width: 440px;
+    }
+  }
+}
