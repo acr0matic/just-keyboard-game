@@ -6,6 +6,11 @@
 }
 
 .game {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
   &__keyboard {
     display: flex;
     flex-direction: column;

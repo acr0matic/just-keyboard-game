@@ -20,6 +20,7 @@
 
     color: $text-white;
     font-size: 21px;
+    transition: 0.15s ease;
 
     &:not(:last-child) {
       margin-right: 10px;
@@ -41,16 +42,34 @@
       transition: 0.15s ease;
     }
 
-    &:not(.keyboard__button--disabled):hover {
-      &::after {
-        width: 100%;
-        height: 100%;
-      }
-    }
-
     &--disabled {
       border-color: $border__disabled;
       opacity: 0.1;
+    }
+
+    &--pressed {
+      &:not(.keyboard__button--disabled) {
+        &::after {
+          animation-name: resize;
+          animation-duration: 0.2s;
+          animation-iteration-count: 1;
+        }
+      }
+    }
+
+    &--target {
+      animation-name: shake;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+
+      box-shadow: inset 0 0 0 6px #45fabe;
+      border-color: #45fabe;
+
+      &:hover {
+        &::after {
+          background-color: #45fabe;
+        }
+      }
     }
 
     &--escape {
